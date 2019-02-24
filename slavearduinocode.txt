@@ -1,0 +1,91 @@
+#define R7 2
+#define R8 3
+#define R9 4
+#define R10 5
+#define R11 6
+#define R12 7
+#define F 13
+#define B 12
+#define L 11
+#define R 10
+char readData; // String for storing data send from the Bluetooth device
+void setup()
+{
+  Serial.begin(9600);
+    pinMode(R7,OUTPUT);
+  digitalWrite(R7,HIGH);
+  pinMode(R8,OUTPUT);
+  digitalWrite(R8,HIGH);
+  pinMode(R9,OUTPUT);
+  digitalWrite(R9,HIGH);
+  pinMode(R10,OUTPUT);
+  digitalWrite(R10,HIGH);
+  pinMode(R11,OUTPUT);
+  digitalWrite(R11,HIGH);
+  pinMode(R12,OUTPUT);
+  digitalWrite(R12,HIGH); 
+  pinMode(F,INPUT);
+  pinMode(B,INPUT);
+  pinMode(L,INPUT);
+  pinMode(R,INPUT);
+}
+
+
+
+void loop() 
+{
+  int a,b,c,d;
+  a=digitalRead(F);
+  b=digitalRead(B);
+  c=digitalRead(L);
+  d=digitalRead(R);
+  Serial.println(a);
+  Serial.println(b);
+  Serial.println(c);
+  Serial.println(d);
+  if(a==1)
+  {
+    digitalWrite(R7,LOW);
+    digitalWrite(R8,HIGH);
+    digitalWrite(R9,HIGH);
+    digitalWrite(R10,LOW);
+    digitalWrite(R11,LOW);
+    digitalWrite(R12,HIGH);
+  }
+  else if(b==1)
+  {
+    digitalWrite(R7,HIGH);
+    digitalWrite(R8,LOW);
+    digitalWrite(R9,LOW);
+    digitalWrite(R10,HIGH);
+    digitalWrite(R11,HIGH);
+    digitalWrite(R12,LOW);
+  }
+  else if(c==1)
+  {
+     digitalWrite(R7,LOW);
+    digitalWrite(R8,HIGH);
+    digitalWrite(R9,LOW);
+    digitalWrite(R10,HIGH);
+    digitalWrite(R11,LOW);
+    digitalWrite(R12,HIGH);
+  }
+  else if(d==1) 
+  {
+    digitalWrite(R7,HIGH);
+    digitalWrite(R8,LOW);
+    digitalWrite(R9,HIGH);
+    digitalWrite(R10,LOW);
+    digitalWrite(R11,HIGH);
+    digitalWrite(R12,LOW);
+  }
+  else
+  {
+    digitalWrite(R7,HIGH);
+    digitalWrite(R8,HIGH);
+    digitalWrite(R9,HIGH);
+    digitalWrite(R10,HIGH);
+    digitalWrite(R11,HIGH);
+    digitalWrite(R12,HIGH);
+  }
+}

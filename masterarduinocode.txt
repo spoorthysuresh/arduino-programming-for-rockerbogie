@@ -1,0 +1,111 @@
+#define R1 2
+#define R2 3
+#define R3 4
+#define R4 5
+#define R5 6
+#define R6 7
+#define F 13
+#define B 12
+#define L 11
+#define R 10
+char readData; // String for storing data send from the Bluetooth device
+void setup()
+{
+  Serial.begin(9600);
+    pinMode(R1,OUTPUT);
+  digitalWrite(R1,HIGH);
+  pinMode(R2,OUTPUT);
+  digitalWrite(R2,HIGH);
+  pinMode(R3,OUTPUT);
+  digitalWrite(R3,HIGH);
+  pinMode(R4,OUTPUT);
+  digitalWrite(R4,HIGH);
+  pinMode(R5,OUTPUT);
+  digitalWrite(R5,HIGH);
+  pinMode(R6,OUTPUT);
+  digitalWrite(R6,HIGH); 
+  pinMode(F,OUTPUT);
+  digitalWrite(F,LOW);
+  pinMode(B,OUTPUT);
+  digitalWrite(B,LOW);
+  pinMode(L,OUTPUT);
+  digitalWrite(L,LOW);
+  pinMode(R,OUTPUT);
+  digitalWrite(R,LOW);
+}
+
+
+
+void loop() 
+{
+while(Serial.available())
+{
+  readData= Serial.read();
+   Serial.println(readData);
+   if (readData=='1')  
+  {
+    digitalWrite(R1,HIGH);
+    digitalWrite(R2,LOW);
+    digitalWrite(R3,LOW);
+    digitalWrite(R4,HIGH);
+    digitalWrite(R5,HIGH);
+    digitalWrite(R6,LOW);
+    digitalWrite(F,HIGH);
+    digitalWrite(B,LOW);
+    digitalWrite(L,LOW);
+    digitalWrite(R,LOW);
+  }
+  else if (readData=='2')
+  {
+    digitalWrite(R1,LOW);
+    digitalWrite(R2,HIGH);
+    digitalWrite(R3,HIGH);
+    digitalWrite(R4,LOW);
+    digitalWrite(R5,LOW);
+    digitalWrite(R6,HIGH);
+    digitalWrite(F,LOW);
+    digitalWrite(B,HIGH);
+    digitalWrite(L,LOW);
+    digitalWrite(R,LOW);
+  }
+  else if(readData=='3')
+  {
+     digitalWrite(R1,LOW);
+    digitalWrite(R2,HIGH);
+    digitalWrite(R3,LOW);
+    digitalWrite(R4,HIGH);
+    digitalWrite(R5,LOW);
+    digitalWrite(R6,HIGH);
+    digitalWrite(F,LOW);
+    digitalWrite(B,LOW);
+    digitalWrite(L,HIGH);
+    digitalWrite(R,LOW);
+  }
+  else if(readData=='4')
+  {
+    digitalWrite(R1,HIGH);
+    digitalWrite(R2,LOW);
+    digitalWrite(R3,HIGH);
+    digitalWrite(R4,LOW);
+    digitalWrite(R5,HIGH);
+    digitalWrite(R6,LOW);
+    digitalWrite(F,LOW);
+    digitalWrite(B,LOW);
+    digitalWrite(L,LOW);
+    digitalWrite(R,HIGH);
+  }
+  else if(readData=='0')
+  {
+    digitalWrite(R1,HIGH);
+    digitalWrite(R2,HIGH);
+    digitalWrite(R3,HIGH);
+    digitalWrite(R4,HIGH);
+    digitalWrite(R5,HIGH);
+    digitalWrite(R6,HIGH);
+    digitalWrite(F,LOW);
+    digitalWrite(B,LOW);
+    digitalWrite(L,LOW);
+    digitalWrite(R,LOW);
+  }
+}
+}
